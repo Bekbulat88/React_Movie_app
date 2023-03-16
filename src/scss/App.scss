@@ -1,0 +1,50 @@
+@import './libs/variables';
+
+.App {
+  z-index: 1;
+  background-image: url('https://c4.wallpaperflare.com/wallpaper/542/1016/860/anime-ninja-scroll-wallpaper-preview.jpg');
+  position: relative;   
+  background-size: cover;
+}
+.App:after {
+  z-index: 2;
+  content: "";
+  display: block;   
+  width: 100%;
+  height: 100%;   
+  position: absolute;
+  top: 0;     
+  left: 0;  
+  background: transparent;
+  background-image: radial-gradient(circle, rgb(121, 179, 207) 20%, rgb(15, 13, 13) 80%);
+  opacity: 0.9;
+}
+.app-wrapper {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  width: 80%;
+  height: 100vh;
+  margin: 0 auto; 
+
+  grid-template-areas: 
+  "nav header news"
+  "nav content news";
+
+  grid-template-rows: 1fr 10fr;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 5px;
+  background-color: $grayBG;
+  opacity: 0.9;
+}
+
+
+.contentBlock{
+  grid-area: contenth;
+  // background-color: $gray;
+}
+
+.newsSide{
+  grid-area: newsSide;
+  // background-color: $orange
+}

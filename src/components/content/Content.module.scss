@@ -1,0 +1,10 @@
+@import '../../scss/libs/variables';
+
+.root{
+  grid-area: content; 
+  color: $fontColor;
+  & h1 {
+    color: $fontColor;
+  }
+  }  
+

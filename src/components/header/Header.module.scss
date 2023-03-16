@@ -1,0 +1,31 @@
+@import '../../scss/libs/variables';
+
+.root{
+  grid-area: header; 
+  color: $fontColor;
+  opacity: 9;
+
+& ul {
+  display: flex;
+  justify-content: space-around;
+
+ & li {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  & a {
+    display: inline-block;
+    font-size: 22px;
+    padding-left: 12px;
+    color: $fontColor;
+  }
+  & .icon{
+    fill: $iconLight;
+  }
+  & input {
+    flex: 2 1 auto
+  }
+ };
+}
+}  
+
