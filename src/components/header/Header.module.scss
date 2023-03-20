@@ -1,9 +1,13 @@
 @import '../../scss/libs/variables';
 
 .root{
-  grid-area: header; 
+  background-color: $grayBG;
+  grid-area: 1 / 2 / 2 / 3;
   color: $fontColor;
   opacity: 9;
+  height: fit-content;
+  border: 2px solid yellow;
+padding: 20px 10px;
 
 & ul {
   display: flex;

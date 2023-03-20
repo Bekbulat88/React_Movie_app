@@ -1,8 +1,21 @@
 @import '../../scss/libs/variables';
 
-.root{
-  grid-area: news; 
+.rootNews{
+  background-color: $grayBG;
+  grid-area: 1 / 3 / 3 / 4; 
   color: $fontColor;
   border: 2px solid $fontColor;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  & h3 {
+   
+    font-size: 40px;
+  }
+  & .mainBlock {
+    margin: 5px;
+  }
+
   }  
 

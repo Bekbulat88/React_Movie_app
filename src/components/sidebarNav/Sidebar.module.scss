@@ -1,18 +1,24 @@
 @import '../../scss/libs/variables';
 
 .root{
-  grid-area: nav; 
+  background-color: $grayBG;
+  position: relative;
+  grid-area: 1 / 1 / 3 / 2; 
   color: $fontColor;
   opacity: 9;
+  height: 100vh;
 
 & ul {
+  position: sticky;
+  transition: 0.2;
+  top:0;
  border: 3px solid  $borderLight;
  border-top-left-radius: 10px;
  border-bottom-left-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 100vh;
+  height: 50%;
  & li {
   display: flex;
   align-items: center;
@@ -20,11 +26,12 @@
   & a {
     display: inline-block;
     font-size: 22px;
-    padding-left: 12px;
+ 
     color: $fontColor;
   }
   & .icon{
-    fill: $iconLight;
+    fill: $iconLight;  
+    margin-right: 12px;
   }
  };
 }

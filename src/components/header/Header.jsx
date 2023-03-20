@@ -13,7 +13,7 @@ const Header = () => {
           <Link href="!#">Movies</Link>
         </li>
         <li>
-          <Link href="!#">Seriesss</Link>
+          <Link href="!#">Series</Link>
         </li>
         <li>
           <Link href="!#">TVShows</Link>

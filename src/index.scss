@@ -1,3 +1,5 @@
+@import './scss/libs/variables';
+
 * {
   padding: 0;
   margin: 0;
@@ -26,7 +28,7 @@ h2,
 h3,
 h4,
 h5 {
-  color: black
+  color: $fontColor;
 }
 
 h1 {
@@ -38,7 +40,13 @@ h2 {
   font-size: 28px;
   line-height: 30px;
 }
+h3 {
+  font-size: 22px;
+}
 
+p {
+  font-size: 18px;
+}
 a {
   text-decoration: none;
 }
