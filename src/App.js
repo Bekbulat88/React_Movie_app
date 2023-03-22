@@ -9,6 +9,8 @@ import { Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import WatchMovies from './components/watchMovie/WatchMovies';
+import Movies from './pages/Movies';
+import ApartVideoPage from './pages/ApartVideoPage';
 function App() {
   return (
     <Provider store={store}>
@@ -23,6 +25,8 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/watch_list" element={<WatchList />} />
               <Route path="/watch_movie" element={<WatchMovies />} />
+              <Route path="/movies" element={<Movies />} />
+              <Route path="/videoPage" element={<ApartVideoPage />} />
             </Routes>
 
             {/* <WatchList /> */}

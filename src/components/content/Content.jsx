@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { topfilmsRequestAsync } from '../../redux/topMovies/slice/topMoviesSlice';
 import { API_KEY } from '../../const';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 // const type = 'TOP_100_POPULAR_FILMS'; //кинопоиск
 
@@ -51,7 +52,9 @@ const Content = () => {
       <Carousel />
       <div className={style.popularHeader}>
         <h3>Most popular</h3>
-        <h3>view all</h3>
+        <Link to={'/movies'}>
+          <h3>view all</h3>
+        </Link>
       </div>
 
       <div className={style.main}>

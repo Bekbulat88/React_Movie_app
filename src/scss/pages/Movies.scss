@@ -1,0 +1,13 @@
+.moviesBlock {
+    & h2 {
+        font-size: 50px;
+        text-align: center;
+        margin: 20px 0 50px;
+    }
+    
+    & .moviesGrid {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+}
