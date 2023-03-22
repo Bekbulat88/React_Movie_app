@@ -1,29 +1,29 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import YouTube from 'react-youtube';
-import { API_KEY, API_URI } from '../const';
+
+import qs from 'qs';
+import { useDispatch, useSelector } from 'react-redux';
+import { trailersRequestAsync } from '../redux/moviesTrailers/moviesTrailersSlice';
+import style from '../scss/pages/ApartVideoPage.module.scss';
 const ApartVideoPage = () => {
-  const [video, setVideo] = useState('');
+  // const [video, setVideo] = useState('');
+  const dispatch = useDispatch();
 
-  const func1 = async () => {
-    const { data } = await axios.get(`${API_URI}/movie/594767/videos`, {
-      params: {
-        api_key: API_KEY,
-        append_to_response: video,
-      },
-    });
+  const { trailer } = useSelector((state) => state.trailers);
 
-    setVideo(data);
-  };
-  console.log(video);
   useEffect(() => {
-    func1();
-    console.log(video);
+    if (window.location.search) {
+      const params = qs.parse(window.location.search.substring(1));
+
+      dispatch(trailersRequestAsync(params));
+    }
   }, []);
 
   return (
-    <div>
-      <YouTube videoId={'AIc671o9yCI'} />
+    <div className={style.root}>
+      {trailer.map((elem) => (
+        <YouTube videoId={elem.key} className={style.playersBlock} key={elem.id} />
+      ))}
     </div>
   );
 };

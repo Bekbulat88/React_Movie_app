@@ -14,12 +14,9 @@ const Carousel = () => {
     // listen for Swiper events using addEventListener
     swiperElRef.current.addEventListener('progress', (e) => {
       const [swiper, progress] = e.detail;
-      console.log(progress);
     });
 
-    swiperElRef.current.addEventListener('slidechange', (e) => {
-      console.log('slide changed');
-    });
+    swiperElRef.current.addEventListener('slidechange', (e) => {});
   }, []);
 
   return (

@@ -38,7 +38,7 @@ const News = () => {
       <div className={style.mainBlock}>
         {upcomingMovies.map((elem, index) => {
           if (index < 5) {
-            return <NewsItem {...elem} />;
+            return <NewsItem {...elem} key={elem.poster_path} />;
           }
         })}
       </div>

@@ -1,22 +1,22 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { API_IMAGE_PREFIX, API_URI } from '../../const';
+import React, { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { API_IMAGE_PREFIX } from '../../const';
 import style from './ContentItem.module.scss';
-const ContentItem = ({ title, year, poster_path, rating }) => {
-  // console.log(poster_path);
+import qs from 'qs';
+
+const ContentItem = ({ title, year, poster_path, rating, id }) => {
+  // useEffect(() => {
+  //   const queryString = qs.stringify({
+  //     id,
+  //   });
+  //   console.log(queryString);
+  // }, []);
+
   return (
     <div className={style.root}>
-      <Link to={'/videoPage'}>
+      <Link to={`/videoPage?id=${id}`}>
         <div className={style.poster}>
-          {
-            <img
-              className={style.image}
-              src={`${API_IMAGE_PREFIX}${poster_path}`}
-              alt="poster"
-              // width={180}
-              // height={270}
-            />
-          }
+          {<img className={style.image} src={`${API_IMAGE_PREFIX}${poster_path}`} alt="poster" />}
           {<span>{rating}</span>}
         </div>
         <div className={style.titleBlock}>

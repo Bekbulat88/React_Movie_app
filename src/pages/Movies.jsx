@@ -1,27 +1,10 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import ContentItem from '../components/contentItem/ContentItem';
-import { API_KEY } from '../const';
 import '../scss/pages/Movies.scss';
+
 const Movies = () => {
-  const [topMovies, setTopMovies] = useState([]);
-  const API_URI = 'https://api.themoviedb.org/3/';
-
-  const func1 = async () => {
-    const {
-      data: { results },
-    } = await axios.get(`${API_URI}discover/movie`, {
-      params: {
-        api_key: API_KEY,
-      },
-    });
-
-    setTopMovies(results);
-  };
-
-  useEffect(() => {
-    func1();
-  }, []);
+  const { topMovies } = useSelector((state) => state.topMovies);
 
   return (
     <div className="moviesBlock">
@@ -29,7 +12,7 @@ const Movies = () => {
       <div className="moviesGrid">
         {topMovies.map((elem) => {
           {
-            return <ContentItem {...elem} />;
+            return <ContentItem {...elem} key={elem.id} />;
           }
         })}
       </div>
