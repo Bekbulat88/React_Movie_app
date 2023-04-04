@@ -1,0 +1,27 @@
+@import '../../scss/libs/variables';
+.root {
+    margin:20px 0;
+    & h1 {
+        color: $fontColor;
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+    & .header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 15px;
+        color:$fontColor;
+        align-items: center;
+    & a {
+        font-size: 22px;
+        }
+        & h3 {
+          font-size: 30px;
+        }
+      }
+   & .main {
+        border: 2px solid orange;
+        display: flex;
+        justify-content: space-around
+      }
+}

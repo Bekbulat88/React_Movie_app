@@ -1,0 +1,21 @@
+.root {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    & .header {
+        display: flex;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+        & .imageBlock {
+            
+            & img {
+                max-width: 200px;
+            }
+        }
+        & .headerInfo {
+            margin-left: 15px;
+        }
+    }
+}

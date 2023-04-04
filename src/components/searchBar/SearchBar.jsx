@@ -1,27 +1,17 @@
-import axios from 'axios';
 import React, { useCallback, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { API_KEY, API_URI } from '../../const';
 import debounce from 'lodash.debounce';
+import ContentItem from '../contentItem/ContentItem';
+import style from './SearchBar.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { searchRequestAsync } from '../../redux/search/searchSlice';
 
 const SearchBar = () => {
   const [searchKey, setSearchKey] = useState('');
-  const [searchList, setSearchList] = useState([]);
-  const func = async () => {
-    const {
-      data: { results },
-    } = await axios.get(`${API_URI}/search/movie`, {
-      params: {
-        api_key: API_KEY,
-        query: searchKey,
-      },
-    });
-    setSearchList(results);
-  };
+  const { searchValue } = useSelector((state) => state.search);
+  const dispatch = useDispatch();
 
   const searchMovies = (event) => {
     event.preventDefault();
-    // func();
   };
 
   const updateSearchValue = useCallback(
@@ -32,36 +22,32 @@ const SearchBar = () => {
   );
 
   useEffect(() => {
-    func();
+    dispatch(searchRequestAsync(searchKey));
   }, [searchKey]);
 
   return (
-    <form onSubmit={searchMovies}>
+    <form onSubmit={searchMovies} className={style.root}>
       <input
         onChange={(event) => updateSearchValue(event.currentTarget.value)}
         type={'text'}
         list="searchField"
       ></input>
-      <datalist id="searchField">
-        {searchList.length
-          ? searchList.map((elem, index) => {
-              if (index < 5) {
-                return <option value={elem.title}></option>;
-              }
-            })
-          : ''}
-      </datalist>
-      {/* <ul>
-        {' '}
-        {searchList.length
-          ? searchList.map((elem, index) => {
-              if (index < 5) {
-                return <li>{elem.title}</li>;
-              }
-            })
-          : ''}
-      </ul> */}
 
+      {searchValue.length ? (
+        <ul className={style.searchList}>
+          {searchValue.map((elem, index) => {
+            if (index < 5) {
+              return (
+                <li className={style.listItem}>
+                  <ContentItem {...elem} />
+                </li>
+              );
+            }
+          })}
+        </ul>
+      ) : (
+        ''
+      )}
       <button type={'submit'}>Search</button>
     </form>
   );

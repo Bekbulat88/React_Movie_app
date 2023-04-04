@@ -18,6 +18,7 @@ const initialState = {
   error: '',
 };
 
+console.log(initialState.topMovies);
 const topMoviesSlice = createSlice({
   name: 'topMovies',
   initialState,
@@ -27,7 +28,6 @@ const topMoviesSlice = createSlice({
         state.error = '';
       })
       .addCase(topfilmsRequestAsync.fulfilled, (state, action) => {
-        state.error = '';
         state.topMovies = action.payload;
       })
       .addCase(topfilmsRequestAsync.rejected, (state, action) => {

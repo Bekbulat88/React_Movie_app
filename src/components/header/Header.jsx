@@ -40,17 +40,14 @@ const Header = () => {
   return (
     <nav className={style.root}>
       <ul>
-        <li>
+        {/* <li>
           <Link to={'/'}>All</Link>
+        </li> */}
+        <li>
+          <Link to="/movies">Movies</Link>
         </li>
         <li>
-          <Link href="!#">Movies</Link>
-        </li>
-        <li>
-          <Link href="!#">Series</Link>
-        </li>
-        <li>
-          <Link href="!#">TVShows</Link>
+          <Link to="/tvShows">TVShows</Link>
         </li>
         <li>
           <SearchBar />

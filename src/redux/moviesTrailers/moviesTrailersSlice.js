@@ -4,7 +4,7 @@ import { API_KEY, API_URI } from '../../const';
 
 export const trailersRequestAsync = createAsyncThunk('trailers/fetch', async (params) => {
   try {
-    const { data } = await axios.get(`${API_URI}/movie/${params.id}/videos`, {
+    const { data } = await axios.get(`${API_URI}/${params.type}/${params.id}/videos`, {
       params: {
         api_key: API_KEY,
         append_to_response: 'video',

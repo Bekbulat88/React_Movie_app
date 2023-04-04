@@ -27,7 +27,8 @@ padding: 20px 10px;
     fill: $iconLight;
   }
   & input {
-    flex: 2 1 auto
+    flex: 3 0 auto;
+    // max-width: 800pix
   }
  };
 }
